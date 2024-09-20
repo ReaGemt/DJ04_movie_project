@@ -1,0 +1,17 @@
+{% for film in films %}
+    <div class="card mb-3">
+        <div class="card-header">
+            <h2>{{ film.title }}</h2>
+        </div>
+        <div class="card-body">
+            {% if film.image %}
+                <img src="{{ film.image.url }}" class="img-fluid mb-3" alt="Обложка фильма">
+            {% endif %}
+            <p><strong>Описание:</strong> {{ film.description }}</p>
+            <p><strong>Отзыв:</strong> {{ film.review }}</p>
+            <a href="{% url 'film_delete' film.pk %}" class="btn btn-danger">Удалить</a>
+        </div>
+    </div>
+{% empty %}
+    <p>Нет добавленных фильмов.</p>
+{% endfor %}
