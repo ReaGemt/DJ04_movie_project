@@ -8,3 +8,8 @@ class Film(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = 'Фильмы'
+        verbose_name_plural = 'Фильмы'
